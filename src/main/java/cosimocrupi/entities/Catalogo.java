@@ -14,7 +14,7 @@ public abstract class Catalogo{
          this.numeroPagine=numeroPagine;
      }
 
-     public UUID getIsbn() {
+     public String getIsbn() {
          return isbn;
      }
 
