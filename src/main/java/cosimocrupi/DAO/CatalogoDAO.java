@@ -2,7 +2,6 @@ package cosimocrupi.DAO;
 
 
 import cosimocrupi.entities.Catalogo;
-import cosimocrupi.entities.Libri;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 

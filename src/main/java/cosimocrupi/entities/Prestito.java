@@ -22,7 +22,7 @@ public class Prestito {
     @JoinColumn(name = "riviste_id")
     private Riviste rivista;
     @ManyToOne
-    @JoinColumn(name = "utente_id")
+    @JoinColumn(name = "utente_id", nullable = false)
     private Utente utente;
 
     public Prestito(Catalogo elementoPrestato, LocalDate dataInizio, LocalDate dataRestPrev, LocalDate dataRest) {
