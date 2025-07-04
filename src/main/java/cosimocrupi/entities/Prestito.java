@@ -1,9 +1,6 @@
 package cosimocrupi.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -17,6 +14,16 @@ public class Prestito {
     protected LocalDate dataInizio;
     protected LocalDate dataRestPrev;
     protected LocalDate dataRest;
+
+    @OneToOne
+    @JoinColumn (name = "libri_id")
+    private Libri libro;
+    @OneToOne
+    @JoinColumn(name = "riviste_id")
+    private Riviste rivista;
+    @ManyToOne
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
 
     public Prestito(Catalogo elementoPrestato, LocalDate dataInizio, LocalDate dataRestPrev, LocalDate dataRest) {
         this.elementoPrestato = elementoPrestato;

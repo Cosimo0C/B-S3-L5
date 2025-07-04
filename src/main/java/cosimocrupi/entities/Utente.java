@@ -1,11 +1,10 @@
 package cosimocrupi.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table
@@ -16,6 +15,9 @@ public class Utente {
     protected String nome;
     protected String cognome;
     protected LocalDate dataNascita;
+
+    @OneToMany(mappedBy = "utente")
+    private List<Prestito> prestiti= new ArrayList<>();
 
     public Utente(String nome, String cognome, LocalDate dataNascita) {
         this.nome = nome;
@@ -59,5 +61,13 @@ public class Utente {
 
     public void setDataNascita(LocalDate dataNascita) {
         this.dataNascita = dataNascita;
+    }
+
+    public List<Prestito> getPrestiti() {
+        return prestiti;
+    }
+
+    public void setPrestiti(List<Prestito> prestiti) {
+        this.prestiti = prestiti;
     }
 }

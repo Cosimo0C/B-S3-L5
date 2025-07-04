@@ -3,6 +3,7 @@ package cosimocrupi.entities;
 import cosimocrupi.enums.Genere;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 import java.util.UUID;
@@ -14,7 +15,8 @@ public class Libri extends Catalogo{
     UUID isbn;
     protected String autore;
     protected Genere genere;
-
+    @OneToOne(mappedBy = "libro")
+    private Prestito prestito;
 
     public Libri(String titolo, int annoProduzione, int numeroPagine, String autore, Genere genere) {
         super(titolo, annoProduzione, numeroPagine);
@@ -25,20 +27,22 @@ public class Libri extends Catalogo{
         this.genere=genere;
     }
 
+    public Prestito getPrestito() {
+        return prestito;
+    }
+
     @Override
     public String toString() {
         return "Libri{" +
-                ", isbn='" + isbn +
+                "isbn=" + isbn +
                 ", autore='" + autore + '\'' +
-                ", genere=" + genere +'\'' +
+                ", genere=" + genere +
+                ", prestito=" + prestito +
+                ", isbn='" + isbn + '\'' +
                 ", titolo='" + titolo + '\'' +
                 ", annoProduzione=" + annoProduzione +
                 ", numeroPagine=" + numeroPagine +
                 '}';
-    }
-
-    public UUID getId() {
-        return isbn;
     }
 
     public String getAutore() {

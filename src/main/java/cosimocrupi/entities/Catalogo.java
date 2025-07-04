@@ -1,6 +1,8 @@
 package cosimocrupi.entities;
 
- public abstract class Catalogo{
+import java.util.UUID;
+
+public abstract class Catalogo{
      protected String isbn;
      protected String titolo;
      protected int annoProduzione;
@@ -12,7 +14,7 @@ package cosimocrupi.entities;
          this.numeroPagine=numeroPagine;
      }
 
-     public String getIsbn() {
+     public UUID getIsbn() {
          return isbn;
      }
 
